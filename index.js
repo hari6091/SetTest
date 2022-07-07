@@ -64,4 +64,4 @@ function MySet() {
   };
 }
 
-module.exports = MySet
+module.exports = MySet;
