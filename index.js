@@ -1,67 +1,67 @@
 function MySet() {
-  var collection = [];
+  var collection = []
   this.has = function (element) {
-    return collection.indexOf(element) !== -1;
-  };
+    return collection.indexOf(element) !== -1
+  }
   this.values = function () {
-    return collection;
-  };
+    return collection
+  }
   this.size = function () {
-    return collection.length;
-  };
+    return collection.length
+  }
   this.add = function (element) {
     if (!this.has(element)) {
-      collection.push(element);
-      return true;
+      collection.push(element)
+      return true
     }
-    return false;
-  };
+    return false
+  }
   this.remove = function (element) {
     if (this.has(element)) {
-      index = collection.indexOf(element);
-      collection.splice(index, 1);
-      return true;
+      index = collection.indexOf(element)
+      collection.splice(index, 1)
+      return true
     }
-    return false;
-  };
+    return false
+  }
   this.union = function (otherSet) {
-    var unionSet = new MySet();
-    var firstSet = this.values();
-    var secondSet = otherSet.values();
+    var unionSet = new MySet()
+    var firstSet = this.values()
+    var secondSet = otherSet.values()
     firstSet.forEach(function (e) {
-      unionSet.add(e);
-    });
+      unionSet.add(e)
+    })
     secondSet.forEach(function (e) {
-      unionSet.add(e);
-    });
-    return unionSet;
-  };
+      unionSet.add(e)
+    })
+    return unionSet
+  }
   this.intersection = function (otherSet) {
-    var intersectionSet = new MySet();
-    var firstSet = this.values();
+    var intersectionSet = new MySet()
+    var firstSet = this.values()
     firstSet.forEach(function (e) {
       if (otherSet.has(e)) {
-        intersectionSet.add(e);
+        intersectionSet.add(e)
       }
-    });
-    return intersectionSet;
-  };
+    })
+    return intersectionSet
+  }
   this.difference = function (otherSet) {
-    var differenceSet = new MySet();
-    var firstSet = this.values();
+    var differenceSet = new MySet()
+    var firstSet = this.values()
     firstSet.forEach(function (e) {
       if (!otherSet.has(e)) {
-        differenceSet.add(e);
+        differenceSet.add(e)
       }
-    });
-    return differenceSet;
-  };
+    })
+    return differenceSet
+  }
   this.subset = function (otherSet) {
-    var firstSet = this.values();
+    var firstSet = this.values()
     return firstSet.every(function (value) {
-      return otherSet.has(value);
-    });
-  };
+      return otherSet.has(value)
+    })
+  }
 }
 
-module.exports = MySet;
+module.exports = MySet
